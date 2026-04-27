@@ -23,11 +23,17 @@ type
   end;
 
   procedure LogText(AText: string);
+  procedure LogTextFmt(const AFmt: string; AArgs: array of const);
 
 implementation
 
 var
   FClient: TLogger;
+
+procedure LogTextFmt(const AFmt: string; AArgs: array of const);
+begin
+  LogText(Format(AFmt,AArgs));
+end;  
 
 procedure LogText(AText: string);
 begin
